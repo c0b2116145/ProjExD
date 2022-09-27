@@ -1,5 +1,7 @@
 from random import randint
 
+mc = 1
+
 def shutudai():
     global ts, ks
     ts = [chr(randint(65, 90))for i in range(10)]
@@ -29,7 +31,6 @@ def kaitou(ks):
         print("正解です。")
 
 if __name__=="__main__":
-    mc = 1
     while mc <= 3:
         shutudai()
         kaitou()
