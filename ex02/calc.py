@@ -5,10 +5,11 @@ def button_ref(event):  #練習3
     txt = btn["text"]
     entry.insert(tk.END, txt) #練習5
 
-def button_pulus(event): 
-    btn = event.widget
-    txt = btn["text"]
-    entry.insert(tk.END, txt)
+def button_eq(a): 
+    siki = entry.get()
+    num = eval(siki)
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, num)
 
 root = tk.Tk()
 root.geometry("300x500") #練習1
@@ -24,8 +25,12 @@ for i in range(10): #練習2
     else:
         bt.grid(row=4, column=i-9)
 bt_p = tk.Button(root, text="+", width=4, height=2, font=("", 30)) #練習6
-bt_p.bind("<1>", button_pulus)
+bt_p.bind("<1>", button_ref)
 bt_p.grid(row=4, column=1)
+
+bt_e = tk.Button(root, text="=", width=4, height=2, font=("", 30)) #練習7
+bt_e.bind("<1>", button_eq)
+bt_e.grid(row=4, column=2)
 
 entry = tk.Entry(justify="right", width=10, font=("", 40)) #練習4
 entry.grid(row=0, column=0, columnspan=3)
