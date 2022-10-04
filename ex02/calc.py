@@ -50,7 +50,7 @@ for i in range(10): #練習2
         bt.grid(row=3, column=i-6)
     else:
         bt.grid(row=4, column=i-9)
-n = ["+", "-", "÷", "*", "=", "CA", "因"]
+n = ["+", "-", "/", "*", "=", "CA", "因"]
 r = 4
 for i, n in enumerate(n, 1):
     bt_p = tk.Button(root, text=n, width=4, height=1, font=("", 30)) #練習6
