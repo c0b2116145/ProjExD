@@ -3,6 +3,11 @@ import tkinter.messagebox as tkm
 def button_ref(event):  #練習3
     btn = event.widget
     txt = btn["text"]
+    entry.insert(tk.END, txt) #練習5
+
+def button_pulus(event): 
+    btn = event.widget
+    txt = btn["text"]
     entry.insert(tk.END, txt)
 
 root = tk.Tk()
@@ -18,6 +23,9 @@ for i in range(10): #練習2
         bt.grid(row=3, column=i-6)
     else:
         bt.grid(row=4, column=i-9)
+bt_p = tk.Button(root, text="+", width=4, height=2, font=("", 30)) #練習6
+bt_p.bind("<1>", button_pulus)
+bt_p.grid(row=4, column=1)
 
 entry = tk.Entry(justify="right", width=10, font=("", 40)) #練習4
 entry.grid(row=0, column=0, columnspan=3)
