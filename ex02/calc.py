@@ -3,7 +3,7 @@ import tkinter.messagebox as tkm
 def button_ref(event):  #練習3
     btn = event.widget
     txt = btn["text"]
-    tkm.showinfo(txt, f"{txt}のボタンがクリックされました")
+    entry.insert(tk.END, txt)
 
 root = tk.Tk()
 root.geometry("300x500") #練習1
