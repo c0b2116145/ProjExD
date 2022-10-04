@@ -1,10 +1,15 @@
 import tkinter as tk
-from tokenize import cookie_re
+import tkinter.messagebox as tkm
+def button_ref(event):  #練習3
+    btn = event.widget
+    txt = btn["text"]
+    tkm.showinfo(txt, f"{txt}のボタンがクリックされました")
 
 root = tk.Tk()
 root.geometry("300x500") #練習1
 for i in range(10): #練習2
     bt = tk.Button(root, text=f"{9-i}", width=4, height=2, font=("", 30))
+    bt.bind("<1>", button_ref)
     if i < 3:
         bt.grid(row=0, column=i)
     elif 3 <= i < 6:
