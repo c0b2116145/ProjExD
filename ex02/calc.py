@@ -16,7 +16,8 @@ def button_del(d):
     entry.delete(0, tk.END)
 
 def button_in(i):
-    suu = int(entry.get())
+    siki = entry.get()
+    suu = eval(siki)
     factor = {}
     div = 2
     s = math.sqrt(suu)
@@ -30,6 +31,8 @@ def button_in(i):
         div += 1
     if suu > 1:
         factor[suu] = 1
+        
+    entry.delete(0, tk.END)
     for s, k in factor.items():
         num = f"{s}:{k}個"
         entry.insert(tk.END, num)
