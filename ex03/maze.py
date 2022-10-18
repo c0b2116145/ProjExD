@@ -1,6 +1,6 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
-import maze_maker
+from maze_maker import *
 import random
 import sys
 
@@ -112,7 +112,7 @@ if __name__=="__main__":
     mx, my = 1, 1   #グローバル変数の設定
     cx, cy = 50+mx*100, 50+my*100
     key = ""
-    mp = maze_maker.make_maze(15, 9)
+    mp = make_maze(15, 9)
     tmr = 0
     ei = []
     
@@ -126,7 +126,7 @@ if __name__=="__main__":
     canva.pack()
     koukaton = tk.PhotoImage(file="./ex03/fig/0.png")   #画像の設定
     e_koukaton = tk.PhotoImage(file="./ex03/fig/1.png")
-    maze_maker.show_maze(canva, mp)
+    show_maze(canva, mp)
 
     canva.create_image(cx, cy, image=koukaton, tag = "koukaton")
 
