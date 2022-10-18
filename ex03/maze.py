@@ -42,9 +42,18 @@ def key_up(event): #keyが離れた時の時の反応
     global key, jid
     key = ""
 
+def shokika():
+    global mx, my, ei, tmr, key
+    mx, my = 1, 1
+    for ene in ei:
+        canva.delete(ene.tag)
+    ei =[]
+    tmr = 0
+    key = ""
+    mk_enemy()
 
 def main_proc(): #リアルタイム処理
-    global cx, cy, mx, my, ei, tmr, key
+    global cx, cy, mx, my
 
     if key == "Up" and mp[my-1][mx] == 0: #自分のキャラを操作
         my -= 1
@@ -77,13 +86,7 @@ def main_proc(): #リアルタイム処理
             if ans == False:
                 sys.exit()
             else:
-                mx, my = 1, 1
-                for ene in ei:
-                    canva.delete(ene.tag)
-                ei =[]
-                tmr = 0
-                key = ""
-                mk_enemy()
+                shokika()
 
         
     canva.coords("koukaton", cx, cy)
@@ -94,16 +97,8 @@ def main_proc(): #リアルタイム処理
         if re == False:
             sys.exit()
         else:
-            mx, my = 1, 1
-            for ene in ei:
-                canva.delete(ene.tag)
-            ei =[]
-            tmr = 0
-            key = ""
-            mk_enemy()
-            
-
-
+            shokika()
+ 
     root.after(100, main_proc)
 
      
