@@ -88,7 +88,7 @@ def main_proc(): #リアルタイム処理
         
     canva.coords("koukaton", cx, cy)
 
-    if mx == 13 and  my==7: #ゴール判定と処理
+    if mx == len(mp[0])-2 and  my==len(mp)-2: #ゴール判定と処理
         tkm.showinfo("ゴール", "ゴールできました！")
         re = tkm.askyesno("もう一度プレーしますか？")
         if re == False:
