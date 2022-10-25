@@ -90,7 +90,7 @@ def main():
                 bom.bvy += 1
             elif bom.bom_rec.bottom+1>900:
                 bom.bvy *= -1
-                bom.bvy -= -1
+                bom.bvy -= 1
             elif bom.bom_rec.left-1<0:
                 bom.bvx *= -1
                 bom.bvx += 1
@@ -121,9 +121,6 @@ def main():
                     clock2 = pg.time.Clock() #爆発画像を表示する時間を稼ぐ
                     clock2.tick(10)
                     break
-            else:
-                continue
-            break
 
         pg.display.update()
         
