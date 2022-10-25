@@ -106,6 +106,7 @@ def main():
                 text("GAME OVER", 800, 450, (255, 0, 0)) #game overのテキストを表示
                 pg.display.update()
                 pg.time.wait(2000) #2秒表示する
+                main()
                 return
 
         #爆弾と爆弾の当たり判定
