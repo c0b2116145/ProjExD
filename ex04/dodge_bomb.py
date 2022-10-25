@@ -128,11 +128,11 @@ def main():
         key_lit = pg.key.get_pressed()
         if key_lit[pg.K_UP] and koukaton_rec.top-1>=0:
             cvy = -1
-        elif key_lit[pg.K_DOWN] and koukaton_rec.bottom+1<=900:
+        if key_lit[pg.K_DOWN] and koukaton_rec.bottom+1<=900:
             cvy = 1
-        elif key_lit[pg.K_LEFT] and koukaton_rec.left-1>=0:
+        if key_lit[pg.K_LEFT] and koukaton_rec.left-1>=0:
             cvx = -1
-        elif key_lit[pg.K_RIGHT] and koukaton_rec.right+1<=1600:
+        if key_lit[pg.K_RIGHT] and koukaton_rec.right+1<=1600:
             cvx = 1
         koukaton_rec.move_ip(cvx, cvy) #ここで動かしている
 
