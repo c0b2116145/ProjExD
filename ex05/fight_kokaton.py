@@ -5,7 +5,6 @@ from random import randint, random
 
 #練習１+ main関数内でScreenクラスを使うように変更
 class Screen:
-
     def __init__(self, title, scsize:tuple, bg_fname):
         pg.display.set_caption(title)
         self.sfc = pg.display.set_mode(scsize)
@@ -51,7 +50,6 @@ class Bird(pg.sprite.Sprite):
 
 #練習3 + main関数でBombクラスを使うように変更
 class Bomb(pg.sprite.Sprite):
-
     def __init__(self, rgb:tuple, hankei, speed:tuple, scr):
         pg.sprite.Sprite.__init__(self, self.containers) #
         self.image = pg.Surface((20, 20))
@@ -64,7 +62,7 @@ class Bomb(pg.sprite.Sprite):
         scr.blit(self.image, self.rect)
 
     def update(self, scr):
-        if pg.time.get_ticks()%5000 == 0:
+        if pg.time.get_ticks()%1000 == 0:
             self.vx *= 2 
             self.vy *= 2
         yoko, tate = check_bound(self.rect, scr.rct)
@@ -75,7 +73,6 @@ class Bomb(pg.sprite.Sprite):
 
 
 class Shote(pg.sprite.Sprite):
-
     def __init__(self, first_place, xy):
         pg.sprite.Sprite(self, self.containers)
         self.image = pg.image.load("ex05/fig/egg_toumei.png")
@@ -109,7 +106,6 @@ def check_bound(obj_rct, scr_rct):
 
 
 def main():
-    #screen
     scrn = Screen("負けるな！こうかとん", (1600, 900), "ex05/fig/pg_bg.jpg")
 
     all = pg.sprite.RenderUpdates()
@@ -139,7 +135,7 @@ def main():
                 tanni = (x**2+y**2)**0.5
                 shot = Shote(tori.rect, (x/tanni+2, y/tanni+2))
 
-        if pg.time.get_ticks()%5000 == 0:
+        if pg.time.get_ticks()%1000 == 0:
             bomb = Bomb((255, 0, 0), 10, (+1, +1), scrn)
             bomb.image.set_colorkey((0, 0, 0))
 
