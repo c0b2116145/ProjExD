@@ -64,7 +64,7 @@ class Bomb(pg.sprite.Sprite):
         scr.blit(self.image, self.rect)
 
     def update(self, scr):
-        if pg.time.get_ticks()%10000 == 0:
+        if pg.time.get_ticks()%5000 == 0:
             self.vx *= 2 
             self.vy *= 2
         yoko, tate = check_bound(self.rect, scr.rct)
