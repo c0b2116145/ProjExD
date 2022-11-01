@@ -62,7 +62,7 @@ class Bomb(pg.sprite.Sprite):
         scr.blit(self.image, self.rect)
 
     def update(self, scr):
-        if pg.time.get_ticks()%1000 == 0:
+        if randint(0, 500) == 0:
             self.vx *= 2 
             self.vy *= 2
         yoko, tate = check_bound(self.rect, scr.rct)
@@ -135,7 +135,7 @@ def main():
                 tanni = (x**2+y**2)**0.5
                 shot = Shote(tori.rect, (x/tanni+2, y/tanni+2))
 
-        if pg.time.get_ticks()%1000 == 0:
+        if randint(0, 500) == 0:
             bomb = Bomb((255, 0, 0), 10, (+1, +1), scrn)
             bomb.image.set_colorkey((0, 0, 0))
 
