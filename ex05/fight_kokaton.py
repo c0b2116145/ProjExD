@@ -92,12 +92,8 @@ class Shote(pg.sprite.Sprite):
         if not(scr.rect.contains(self.rect)):
             self.kill()
         self.blit(scr)
-
-
         
         
-        
-
 def check_bound(obj_rct, scr_rct):
     """
     obj_rct：こうかとんrct，または，爆弾rct
@@ -121,9 +117,9 @@ def main():
     bombs = pg.sprite.Group()
     egs = pg.sprite.Group()
 
+    Shote.containers = egs, all
     Bird.containers = toris, all
     Bomb.containers = bombs, all
-    Shote.containers = egs, all
     
     tori = Bird("ex05/fig/6.png", 2.0, (900, 400))
 
@@ -131,12 +127,10 @@ def main():
         bomb = Bomb((255, 0, 0), 10, (+1, +1), scrn) 
         bomb.image.set_colorkey((0, 0, 0)) 
         
-
-
     clock = pg.time.Clock() 
     while True:
         scrn.blit(scrn.bgi_sfc, scrn.bgi_rct) # 練習1
-        
+        all.update(scrn)   
         for event in pg.event.get(): 
             if event.type == pg.QUIT:
                 return
@@ -149,14 +143,10 @@ def main():
             bomb = Bomb((255, 0, 0), 10, (+1, +1), scrn)
             bomb.image.set_colorkey((0, 0, 0))
 
-        all.update(scrn)
-
         
         a = pg.sprite.groupcollide(toris, bombs, False, False)
         if len(a) >= 1:
             return
-
-
 
         pg.display.update() 
         clock.tick(1000)
